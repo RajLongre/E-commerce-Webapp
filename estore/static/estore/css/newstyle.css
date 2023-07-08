@@ -1,0 +1,36 @@
+.order-summary-main{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: cadetblue;
+    
+}
+.order-summary-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bolder{
+    font-weight: bolder;
+}
+.form-label {
+    margin-bottom: 0.5rem;
+    font-size: 20px;
+    font-family: 'DM Sans';
+    font-weight: bolder;
+}
+
+.username{
+    display: block;
+    width: 10vw;
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+

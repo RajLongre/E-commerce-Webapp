@@ -1,0 +1,65 @@
+{% extends 'estore/base.html' %} {% block title %} allproduct {% endblock %}
+{%block head %}
+<style>
+
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Text&display=swap');
+
+
+  body{
+      background-color: whitesmoke;
+
+      {% comment %} font-family:'Courier New', Courier, monospace; {% endcomment %}
+      font-family: 'DM Sans', sans-serif;
+      {% comment %} font-family: 'DM Serif Text', serif; {% endcomment %}
+  }
+</style>
+{% endblock %} {% block body %}
+<h1 class="text-center my-4">All SHIRTS</h1>
+<h3 class="text-center my-4 text-success">50% Off On Products</h3>
+<h3 class="text-center my-4">Grab The Deal Now</h3>
+
+<div class="container">
+  <div class="row fw-bolder fs-4">
+    {% for i in addresses %}
+    <div class="col-6">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <h1>Address{{forloop.counter}}</h1>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-3"></div>
+      <div class="col-6">
+        <span>Name : </span>
+        <span>{{i.name}}</span>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-3"></div>
+      <div class="col-6">
+        <span>Contact : </span>
+        <span>{{i.contact}}</span>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-3"></div>
+      <div class="col-6">
+        <span>Locality : </span>
+        <span>{{i.locality}}</span>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-3"></div>
+      <div class="col-6">
+        <span>City : </span>
+        <span>{{i.city}}</span>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-3"></div>
+      <div class="col-6">
+        <span>Pincode : </span>
+        <span>{{i.pincode}}</span>
+      </div>
+      <div class="col-3"></div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'estore/base.html' %} {% block title %} allproduct {% endblock %} {%block head %}
+<style>
+
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Text&display=swap');
+
+
+  body{
+      background-color: whitesmoke;
+
+      {% comment %} font-family:'Courier New', Courier, monospace; {% endcomment %}
+      font-family: 'DM Sans', sans-serif;
+      {% comment %} font-family: 'DM Serif Text', serif; {% endcomment %}
+  }
+</style>
+{% endblock %} 
+{% block body %}
+
+
+<div class="container my-4 p-4">
+    <form action="{% url 'profile' %}" method="post" class="form-group">
+      {% csrf_token %}
+      <div class="row">
+        <h3 class="text-center bolder">Enter Shipping Details</h3>
+        <div class="col-4 my-2">
+          <label for="name" class="form-label">Name</label>
+        </div>
+        <div class="col-6 my-2">
+          <input type="text" id="name" name="name" class="form-control" />
+        </div>
+        <div class="col-2 my-2">
+        </div>
+
+        <div class="col-4 my-2">
+          <label for="contact" class="form-label">Contact Number</label>
+        </div>
+        <div class="col-6 my-2">
+          <input
+            type="text"
+            id="contact"
+            name="contact"
+            class="form-control"
+          />
+        </div>
+        <div class="col-2 my-2">
+          
+        </div>
+
+        <div class="col-4 my-2">
+          <label for="locality" class="form-label">Locality</label>
+        </div>
+        <div class="col-6 my-2">
+          <input
+            type="text"
+            id="locality"
+            name="locality"
+            class="form-control"
+          />
+        </div>
+        <div class="col-2 my-2">
+          
+        </div>
+
+
+        <div class="col-4 my-2">
+          <label for="city" class="form-label">City</label>
+        </div>
+        <div class="col-6 my-2">
+          <input
+            type="text"
+            id="city"
+            name="city"
+            class="form-control"
+          />
+        </div>
+        <div class="col-2 my-2">
+          
+        </div>
+        <div class="col-4 my-2">
+          <label for="pincode" class="form-label">Pincode</label>
+        </div>
+        <div class="col-6 my-2">
+          <input
+            type="text"
+            id="pincode"
+            name="pincode"
+            class="form-control"
+          />
+        </div>
+        <div class="col-2 my-2">
+          
+        </div>
+        <div class="col-4">
+            
+        </div>
+        <div class="col-4">
+
+            <input
+              type="submit"
+              value="Add Address"
+              class="btn-primary form-control my-4"
+            />
+        </div>
+        <div class="col-4">
+
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

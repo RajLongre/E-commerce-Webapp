@@ -1,0 +1,81 @@
+{% extends 'estore/base.html' %} {% block title %} allproduct {% endblock %}
+{%block head %}
+
+<style>
+
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Text&display=swap');
+
+
+  body{
+      background-color: whitesmoke;
+
+      {% comment %} font-family:'Courier New', Courier, monospace; {% endcomment %}
+      font-family: 'DM Sans', sans-serif;
+      {% comment %} font-family: 'DM Serif Text', serif; {% endcomment %}
+  }
+</style>
+{% endblock %} {% block body %} 
+
+
+<div class="container my-4 p-4">
+  <div class="row">
+    <div class="col-6 border">
+      <div class="row">
+        {% for i in data %}
+
+        <div class="col-4 border bg-white" style="">
+          <div class="text-center">
+            <a href="{{ i.product.image.url }}"
+              ><img src="{{ i.product.image.url }}" width="80px" height="120px"
+            /></a>
+          </div>
+        </div>
+        <div class="col-8 border bg-white" style="">
+          <div class="text-center my-1">
+            <h4>{{ i.product.name }}</h4>
+          </div>
+
+          <div class="text-center text-primary my-1">
+            {{ i.product.price }}MRP
+          </div>
+
+          <div class="text-center text-secondary bolder my-2">
+            {{ i.quantity }} Quantity = {{ i.product.price }}Rs
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+      <div class="fw-bolder fs-4">
+        Total Quantity: {{counter}}<br />
+        Total Price: {{amount}} Rs
+      </div>
+    </div>
+    <div class="col-6 border">
+      <h2 class="text-center mb-4">Select Shipping Address</h2>
+      <form action="orderplaced">
+        {% csrf_token %}
+        {% for i in addresses %}
+        
+        <input type="radio" name="addressbtn" id="address{{forloop.counter}}" value="{{i.id}}" checked />
+        
+        <label for="address{{forloop.counter}}"
+          >Address {{forloop.counter}}</label
+        >
+        <div class="border mb-4 p-4">
+          <div class="fw-bolder">{{i.name}}</div>
+          {{i.locality}},{{i.city}}-{{i.pincode}}<br />
+          +91 {{i.contact}}
+        </div>
+
+        {% endfor %}
+        <input
+          type="submit"
+          class="btn btn-danger shadow"
+          value="Place Order"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

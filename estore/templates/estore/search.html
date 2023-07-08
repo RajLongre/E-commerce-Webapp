@@ -1,0 +1,213 @@
+{% extends 'estore/base.html' %}
+{% block title %}
+  allproduct
+{% endblock %}
+{% block head %}
+<style>
+    
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Text&display=swap');
+        
+        
+    body{
+        background-color: whitesmoke;
+
+        {% comment %} font-family:'Courier New', Courier, monospace; {% endcomment %}
+        font-family: 'DM Sans', sans-serif;
+        {% comment %} font-family: 'DM Serif Text', serif; {% endcomment %}
+    }
+</style>
+{% endblock %}
+{% block body %}
+<h1 class="text-center my-4">SEARCH RECORDS</h1>
+
+
+  <div class="allproducts">
+      <div class="row" style="max-width: 80vw;margin: auto;">
+         
+        {% if d1 %}
+        {% for i in d1 %}
+
+
+
+
+        <div class="col-3 border bg-white" style="">
+          <div class="text-center my-4" mt-1>
+            <a href="{{ i.image.url }}"><img src="{{ i.image.url }}" width="240px" height="320px" /></a>
+          </div>
+          <div class="text-center my-1">
+            <h4>{{ i.name }}</h4>
+          </div>
+          <div class="text-center text-primary my-1">{{ i.price }}MRP</div>
+          <div class="text-center text-success my-1">{{ i.available }} Pieces Available</div>
+          <div class="text-center text-secondary my-2">{{ i.desc }}</div>
+          <div class="text-center text-secondary my-2">
+            <form action="{% url 'buy-product' i.id %}" method="post">
+              {% csrf_token %}
+              <input type="submit" value="BUY NOW" class="btn-primary">
+            </form>
+          </div>
+        </div>
+
+        {% endfor %}
+        {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+        {% comment %} {% if d2 %}
+        {% for data in d2 %}
+
+
+
+
+        <div class="col-4 border bg-white" style="">
+          <div class="text-center my-4" mt-1>
+
+
+            <a href="{{ data.image.url }}"><img src="{{ data.image.url }}" width="240px" height="320px" /></a>
+          </div>
+          <div class="text-center my-1">
+            <h4>{{ data.name }}</h4>
+          </div>
+          <div class="text-center text-primary my-1">{{ data.price }}MRP</div>
+          <div class="text-center text-success my-1">{{ data.available }} Pieces Available</div>
+          <div class="text-center text-secondary my-2">{{ data.desc }}</div>
+          <div class="text-center text-secondary my-2">
+            <form action="" method="post">
+              {% csrf_token %}
+              <label for="quantity">Quantity</label>
+              <input type="text" id="quantity" name="quantity" style="width: 40px;">
+              <input type="submit" value="BUY NOW" class=" btn-primary">
+            </form>
+          </div>
+          
+        </div>
+        
+        {% endfor %}
+        {% endif %}
+
+
+
+   
+        {% if d3 %}
+        {% for data in d3 %}
+
+
+
+
+        <div class="col-4 border bg-white" style="">
+          <div class="text-center my-4" mt-1>
+
+
+            <a href="{{ data.image.url }}"><img src="{{ data.image.url }}" width="240px" height="320px" /></a>
+          </div>
+          <div class="text-center my-1">
+            <h4>{{ data.name }}</h4>
+          </div>
+          <div class="text-center text-primary my-1">{{ data.price }}MRP</div>
+          <div class="text-center text-success my-1">{{ data.available }} Pieces Available</div>
+          <div class="text-center text-secondary my-2">{{ data.desc }}</div>
+          <div class="text-center text-secondary my-2">
+            <form action="" method="post">
+              {% csrf_token %}
+              <label for="quantity">Quantity</label>
+              <input type="text" id="quantity" name="quantity" style="width: 40px;">
+              <input type="submit" value="BUY NOW" class=" btn-primary">
+            </form>
+          </div>
+          
+        </div>
+        <div class="col-8 border bg-white" style="">
+
+        {% endfor %}
+        {% endif %} {% endcomment %}
+
+
+        
+        
+        
+        
+        {% if msg %}
+
+
+        {{msg}}
+  
+        {% endif %}
+
+
+      
+
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+          {% comment %} {% if total %}
+          <div class="container">
+        
+            <div><h1>you have selected <strong> {{quantity}} Quantity </strong></h1></div>
+            <div><h1>price of each quantity is  <strong>{{price}} rs </strong></h1></div>
+            <div><h1>total price is <strong>{{total}} rs </strong></h1></div>
+            <form action="" method="post">
+              {% csrf_token %}
+              <input type="submit" value="PURCHASE" class=" btn-primary">
+            </form>
+          </div>
+          {% endif %} {% endcomment %}
+        
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

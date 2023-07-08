@@ -1,0 +1,106 @@
+{% extends 'estore/base.html' %} {% block title %} allproduct {% endblock %} 
+{%block head %}
+
+<style>
+
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Text&display=swap');
+
+
+  body{
+      background-color: whitesmoke;
+
+      {% comment %} font-family:'Courier New', Courier, monospace; {% endcomment %}
+      font-family: 'DM Sans', sans-serif;
+      {% comment %} font-family: 'DM Serif Text', serif; {% endcomment %}
+  }
+</style>
+{% endblock %} {% block body %}
+{% if MSG %}
+<div class="container">
+  <h1 class="text-center my-4">{{MSG}}</h1>
+</div>
+{% else %}
+<h1 class="text-center my-4">All Items</h1>
+<h3 class="text-center my-4 text-success">You Have Choosen Great Products</h3>
+<h3 class="text-center my-4">Grab The Deal Now</h3>
+
+<div class="allproducts ">
+  <div class="row " style="margin: auto">
+    <div class="col-7 border bg-white" style="">
+      {% for i in data %}
+      <div class="row my-4 price-detail">
+        <div class="col-4 border bg-white" style="">
+          <div class="text-center">
+            <a href="{{ i.product.image.url }}"
+              ><img
+                src="{{ i.product.image.url }}"
+                width="120px"
+                height="180px"
+            /></a>
+          </div>
+        </div>
+        <div class="col-8 border bg-white" style="">
+          <div class="text-center my-1">
+            <h4>{{ i.product.name }}</h4>
+          </div>
+          <div class="text-center text-secondary my-2">
+            {{ i.product.desc }}
+          </div>
+          <div class="text-center text-primary my-1">
+            {{ i.product.price }}MRP
+          </div>
+          <div class="text-center text-success my-1">
+            {{ i.product.available }} Pieces Available
+          </div>
+          <div class="text-center text-secondary bolder my-2">
+            {{ i.quantity }} Quantity = {{ i.product.price }}Rs
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+    <div class="col-5 border bg-white" style="">
+      <div class="price-detail  my-4 p-4">
+        <h3 class="text-center bolder my-4">Order Summary</h3>
+        <div class="row container order-summary-main">
+          <div class="col-4">
+            <div><strong>Quantity</strong></div>
+            <div><strong>Total</strong></div>
+          </div>
+          <div class="col-4">
+            <div><strong>{{counter}}</strong></div>
+            <div><strong>{{amount}}</strong></div>
+          </div>
+          <div class="col-4 my-4">
+
+          </div>
+
+
+
+          <div class="col-4 my-4">
+
+          </div>
+          <div class="col-4 my-4">
+
+            <a href="checkout"><b utton class="btn btn-success my-4">Countinue</b></a>
+          </div>
+          <div class="col-4 my-4">
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% comment %} {% if amount %}
+<div class="container">
+  <h1 class="text-center my-4">Total={{amount}}</h1>
+</div>
+{% endif %} {% endcomment %}
+
+
+{% endblock %}

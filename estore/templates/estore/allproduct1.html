@@ -1,0 +1,35 @@
+{% extends 'estore/base.html' %}
+{% block title %}
+  allproduct
+{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block body %}
+  <h1>allproduct</h1>
+
+  <div class="allproducts">
+      <div class="row mx-4">
+          {% for i in data %}
+        <div class="col-3">
+          <div class="text-center my-4" mt-1>
+            <a href="{{ i.image.url }}"><img src="{{ i.image.url }}" width="100px" height="120px" /></a>
+          </div>
+          <div class="text-center my-1">{{ i.image }}</div>
+          <div class="text-center my-1">{{ i.image.url }}</div>
+          <div class="text-center my-1">
+            <h3>{{ i.name }}</h3>
+          </div>
+          <div class="text-center my-1">{{ i.price }}MRP</div>
+          <div class="text-center my-1">{{ i.available }} Pieces Available</div>
+          <div class="text-center my-1">{{ i.desc }}</div>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+{% endblock %}
+
+{% comment %} <div class="ecommerce-galary container d-flex border my-1">
+  <div class="row py-3 shadow-5 border my-1"></div>
+</div>
+{% endcomment %}

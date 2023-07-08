@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Text&display=swap");
+
+body {
+  background-color: whitesmoke;
+  /* font-family:'Courier New', Courier, monospace; */
+  /* font-family: 'DM Sans', sans-serif; */
+  font-family: "DM Serif Text", serif;
+}
+a {
+  text-decoration: none !important;
+}
+.price-detail {
+  background-color: #f4f4f4;
+  box-shadow: 0px 2px 2px;
+}

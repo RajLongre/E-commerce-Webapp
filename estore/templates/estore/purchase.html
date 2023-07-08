@@ -1,0 +1,186 @@
+{% extends 'estore/base.html' %}
+{% block title %}
+  allproduct
+{% endblock %}
+{% block head %}
+
+<style>
+    
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Text&display=swap');
+        
+        
+    body{
+        background-color: whitesmoke;
+
+        {% comment %} font-family:'Courier New', Courier, monospace; {% endcomment %}
+        font-family: 'DM Sans', sans-serif;
+        {% comment %} font-family: 'DM Serif Text', serif; {% endcomment %}
+    }
+</style>
+{% endblock %}
+{% block body %}
+<h1 class="text-center my-4">All SHIRTS</h1>
+<h3 class="text-center my-4 text-success">50% Off On Products</h3>
+<h3 class="text-center my-4">Grab The Deal Now</h3>
+
+  <div class="allproducts">
+      <div class="row" style="max-width: 80vw;margin: auto;">
+          
+        <div class="col-3 border bg-white" style="">
+          <div class="text-center my-4 d-flex" mt-1>
+            <a href="{{ data.image.url }}"><img src="{{ data.image.url }}" width="240px" height="320px" /></a>
+            
+          </div>
+          <div class="text-center my-1">
+            <h4>{{ data.name }}</h4>
+          </div>
+          <div class="text-center text-primary my-1">{{ data.price }}MRP</div>
+          <div class="text-center text-success my-1">{{ data.available }} Pieces Available</div>
+          <div class="text-center text-secondary my-2">{{ data.desc }}</div>
+          <div class="text-center text-secondary my-2">
+            
+          </div>
+
+
+
+
+
+          
+          
+          
+        </div>
+        <div class="col-8 border bg-white" style="">
+          {% if total %}
+          <div class="container">
+
+            
+            <div class="container  ">
+              <h3 class="text-center bolder my-4">Order Summary</h3>
+                <div class="container">
+                  <div class="order-summary-main">
+                    <div class="order-summary-inner">
+                      <div><strong>Quantity</strong></div>
+                      <strong>{{quantity}}</strong>
+                    </div>
+                    <div class="order-summary-inner">
+                      <div><strong>Price</strong></div>
+                      <strong>{{price}}</strong>
+                    </div>
+                    <div class="order-summary-inner">
+                      <div><strong>Total</strong></div>
+                      <strong>{{total}}</strong>
+                    </div>
+                    
+                    </div>
+                     
+                    
+                    
+                  </div>
+                </div>
+               
+                
+            </div>
+            <hr>
+
+
+        
+            {% comment %} <div><h1>You have selected <strong> {{quantity}} Quantity </strong></h1></div>
+            <div><h1>Price of each quantity is  <strong>{{price}} rs </strong></h1></div>
+            <div><h1>Total price is <strong>{{total}} rs </strong></h1></div> {% endcomment %}
+            <form action="{% url 'bill'  data.id quantity price total %}" method="post" class="form-group">
+              {% csrf_token %}
+              <div class="row  ">
+                <h3 class="text-center bolder">Enter Shipping Details</h3>
+                <div class="col-4 my-2">
+                  <label for="name" class="form-label">Enter Your Name</label>
+                  
+                </div>
+                <div class="col-8 my-2">
+                  <input type="text" id="name" name="name" class="form-control">
+
+                </div>
+                
+                <div class="col-4 my-2">
+                  <label for="contact" class="form-label">Enter Your Contact Number</label>  
+                </div>
+                <div class="col-8 my-2">
+                  <input type="text" id="contact" name="contact" class="form-control">
+
+
+                </div>
+                
+                <div class="col-4 my-2">
+                  <label for="address" class="form-label">Enter Your address</label>
+                  
+                </div>
+                <div class="col-8 my-2">
+                  <input type="text" id="address" name="address"  class="form-control">
+
+
+                </div>
+                
+                <div class="col-4 my-2">
+                  <label for="pincode" class="form-label">Enter Your City</label>
+
+                  
+                </div>
+                <div class="col-8 my-2">
+                  <input type="text" id="city" name="city" class="form-control">
+
+                </div>
+                <div class="col-4 my-2">
+                  <label for="pincode" class="form-label">Enter Your pincode</label>
+
+                  
+                </div>
+                <div class="col-8 my-2">
+                  <input type="text" id="pincode" name="pincode" class="form-control">
+
+                </div>
+                
+                <input type="submit" value="PURCHASE" class=" btn-primary"class="form-control">
+              </div>
+              
+              
+            </form>
+          </div>
+          {% endif %}
+        </div>
+        
+      </div>
+  </div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

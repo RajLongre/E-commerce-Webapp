@@ -1,0 +1,154 @@
+{% extends 'estore/base.html' %}
+{% block title %}
+  allproduct
+{% endblock %}
+{% block head %}
+<style>
+    
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Text&display=swap');
+        
+        
+    body{
+        background-color: whitesmoke;
+
+        font-family:'Courier New', Courier, monospace; 
+        font-family: 'DM Sans', sans-serif;
+        font-family: 'DM Serif Text', serif;  
+    }
+</style>
+{% endblock %}
+{% block body %}
+<h1 class="text-center my-4">Congratulations ! </h1>
+<h3 class="text-center my-4 text-success">Your Order has Placed</h3>
+
+  <div class="allproducts">
+      <div class="row" style="max-width: 80vw;margin: auto;">
+          
+        <div class="col-4 border bg-white" style="">
+          <div class="text-center my-4" mt-1>
+            <a href="{{ data.image.url }}"><img src="{{ data.image.url }}" width="240px" height="320px" /></a>
+          </div>
+          <div class="text-center my-1">
+            <h4>{{ data.name }}</h4>
+          </div>
+          <div class="text-center text-primary my-1">{{ data.price }}MRP</div>
+          <div class="text-center text-success my-1">{{ data.available }} Pieces Available</div>
+          <div class="text-center text-secondary my-2">{{ data.desc }}</div>
+          
+          
+        </div>
+        <div class="col-8 border bg-white" style="">
+          {% if total %}
+          <div class="container">
+
+            {% comment %} <div class="container  ">
+             
+                <div class="container">
+                  <div class="order-summary-main">
+                    
+                    <div class="order-summary-inner">
+                      <div><strong>Name</strong></div>
+                      <strong>{{name}}</strong>
+                    </div>
+                    <div class="order-summary-inner">
+                      <div><strong>Contact</strong></div>
+                      <strong>{{contact}}</strong>
+                    </div>
+                    <div class="order-summary-inner">
+                      <div><strong>Address</strong></div>
+                      <strong>{{address}}</strong>
+                    </div>
+                    <div class="order-summary-inner">
+                      <div><strong>Pincode</strong></div>
+                      <strong>{{pincode}}</strong>
+                    </div>
+                    
+                    </div>
+                     
+                    
+                    
+                  </div>
+                </div>
+               
+                
+            </div> {% endcomment %}
+            <div class="container">
+
+              <h3 class="text-center bolder my-4">Shipping Details</h3>
+
+            <div class="row order-summary-main">
+              <div class="col-4">
+                <strong>Name</strong>
+                      
+              </div>
+              <div class="col-8">
+                <strong>{{name}}</strong>
+              </div>
+              <div class="col-4">
+                <strong>Contact</strong>
+                      
+              </div>
+              <div class="col-8">
+                <strong>{{contact}}</strong>
+              </div>
+              <div class="col-4">
+                <strong>Address</strong>
+                      
+              </div>
+              <div class="col-8">
+                <strong>{{address}}</strong>
+              </div>
+              <div class="col-4">
+                <strong>Pincode</strong>
+                      
+              </div>
+              <div class="col-8">
+                <strong>{{pincode}}</strong>
+              </div>
+
+            </div>
+          </div>
+            <hr>
+          <div class="container">
+        
+            <div class="container  ">
+              <h3 class="text-center bolder my-4">Order Summary</h3>
+                <div class="container">
+                  <div class="order-summary-main">
+                    <div class="order-summary-inner">
+                      <div><strong>Quantity</strong></div>
+                      <strong>{{quantity}}</strong>
+                    </div>
+                    <div class="order-summary-inner">
+                      <div><strong>Price</strong></div>
+                      <strong>{{price}}</strong>
+                    </div>
+                    <div class="order-summary-inner">
+                      <div><strong>Total</strong></div>
+                      <strong>{{total}}</strong>
+                    </div>
+                    
+                    </div>
+                     
+                    
+                    
+                  </div>
+                </div>
+               
+                
+            </div>
+            
+          </div>
+          {% endif %}
+        </div>
+        
+      </div>
+  </div>
+
+
+  
+
+
+
+
+{% endblock %}

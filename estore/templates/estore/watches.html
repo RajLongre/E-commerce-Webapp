@@ -1,0 +1,74 @@
+{% extends 'estore/base.html' %}
+{% block title %}
+  allproduct
+{% endblock %}
+{% block head %}
+<style>
+    
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Text&display=swap');
+        
+    body{
+        background-color: whitesmoke;
+        font-family:'Courier New', Courier, monospace;
+        font-family: 'DM Sans', sans-serif;
+        font-family: 'DM Serif Text', serif;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<h1 class="text-center my-4">All T-SHIRTS</h1>
+<h3 class="text-center my-4 text-success">50% Off On Products</h3>
+<h3 class="text-center my-4">Grab The Deal Now</h3>
+
+  <div class="allproducts">
+      <div class="row" style="max-width: 80vw;margin: auto;">
+          {% for i in data %}
+        <div class="col-3 border bg-white" style="">
+          <div class="text-center my-4" mt-1>
+            <a href="{{ i.image.url }}"><img src="{{ i.image.url }}" width="240px" height="320px" /></a>
+          </div>
+          <div class="text-center my-1">
+            <h4>{{ i.name }}</h4>
+          </div>
+          <div class="text-center text-primary my-1">{{ i.price }}MRP</div>
+          <div class="text-center text-success my-1">{{ i.available }} Pieces Available</div>
+          <div class="text-center text-secondary my-2">{{ i.desc }}</div>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
